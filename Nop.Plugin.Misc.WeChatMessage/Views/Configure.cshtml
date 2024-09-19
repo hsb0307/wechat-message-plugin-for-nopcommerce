@@ -1,0 +1,63 @@
+﻿@model ConfigurationModel
+
+@{
+    Layout = "_ConfigurePlugin";
+    NopHtml.SetActiveMenuItemSystemName("POS plugins");
+
+    var signUpUrl = $"https://my.weChatMessage.com/apps/api-keys?name={WeChatMessageDefaults.ApplicationName}&scopes=READ:FINANCE%20READ:PURCHASE%20READ:USERINFO%20READ:PRODUCT%20WRITE:PRODUCT&utm_source=local_partnership&utm_medium=ecommerce&utm_campaign=nopcommerce";
+}
+
+<form asp-controller="WeChatMessageAdmin" asp-action="Configure" method="post" id="configuration-form">
+    <div class="cards-group">
+        <div class="card card-default no-margin">
+
+            <div class="card-header">
+                @T("Plugins.Misc.WeChatMessage.Credentials")
+            </div>
+
+            <div class="card-body">
+                
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <nop-override-store-checkbox asp-for="Enabled_OverrideForStore" asp-input="Enabled" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                        <nop-label asp-for="Enabled" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="Enabled" />
+                        <span asp-validation-for="Enabled"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <nop-override-store-checkbox asp-for="AppID_OverrideForStore" asp-input="AppID" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                        <nop-label asp-for="AppID" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="AppID" />
+                        <span asp-validation-for="AppID"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <nop-override-store-checkbox asp-for="AppSecret_OverrideForStore" asp-input="AppSecret" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                        <nop-label asp-for="AppSecret" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="AppSecret" />
+                        <span asp-validation-for="AppSecret"></span>
+                    </div>
+                </div>
+
+              
+                <div class="form-group row">
+                    <div class="col-md-9 offset-md-3">
+                        <button type="submit" name="credentials" class="btn btn-primary">@T("Admin.Common.Save")</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</form>

@@ -1,0 +1,11 @@
+﻿{
+  "Group": "Misc",
+  "FriendlyName": "WeChat Template Message",
+  "SystemName": "Misc.WeChatMessage",
+  "Version": "4.70.0",
+  "SupportedVersions": [ "4.70" ],
+  "Author": "QQ954219492",
+  "DisplayOrder": 2,
+  "FileName": "Nop.Plugin.Misc.WeChatMessage.dll",
+  "Description": "This plugin allows to send WeChat template Message to customer."
+}
